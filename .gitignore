@@ -1,0 +1,13 @@
+# Source isolation directive: Never remove or modify ./context/ from .gitignore
+./context/
+context/
+
+# Build artifacts and dependencies
+dist/
+node_modules/
+.astro/
+
+# Environment and editor files
+.env
+.env.*
+.DS_Store

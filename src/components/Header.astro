@@ -1,0 +1,50 @@
+---
+interface Props {
+  activeNav?: 'research' | 'cv' | 'docs';
+}
+
+const { activeNav = 'research' } = Astro.props;
+
+const navItems = [
+  { label: 'Research', href: '/', id: 'research' },
+  { label: 'Curriculum Vitae', href: '/cv', id: 'cv' },
+  { label: 'Technical Documentation', href: '/docs', id: 'docs' },
+];
+---
+
+<header class="w-full border-b border-stone-200 bg-white/95 backdrop-blur-sm sticky top-0 z-40">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    <div class="flex items-center space-x-3">
+      <a href="/" class="text-lg font-serif font-bold tracking-tight text-stone-900 hover:text-stone-700 transition-colors">
+        Academic Portfolio
+      </a>
+      <span class="text-xs px-2 py-0.5 rounded border border-stone-300 bg-stone-100 text-stone-600 font-mono uppercase tracking-wider">
+        Architecture Test
+      </span>
+    </div>
+
+    <nav aria-label="Main Navigation">
+      <ul class="flex items-center space-x-1 sm:space-x-6 text-sm font-medium">
+        {navItems.map((item) => {
+          const isActive = activeNav === item.id;
+          return (
+            <li>
+              <a
+                href={item.href}
+                class:list={[
+                  'px-2.5 py-1.5 transition-colors relative',
+                  isActive
+                    ? 'text-stone-950 font-semibold border-b-2 border-stone-900'
+                    : 'text-stone-600 hover:text-stone-950'
+                ]}
+                aria-current={isActive ? 'page' : undefined}
+              >
+                {item.label}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
+  </div>
+</header>

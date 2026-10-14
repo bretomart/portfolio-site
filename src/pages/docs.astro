@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Technical Documentation | Academic Portfolio"
+  description="Technical documentation and architecture specification for the static academic portfolio and Linux server administration showcase."
+  activeNav="docs"
+>
+  <div class="max-w-3xl mx-auto space-y-10">
+    <header class="border-b border-stone-200 pb-6 space-y-2">
+      <div class="inline-block px-2.5 py-0.5 rounded bg-stone-200 text-stone-800 text-xs font-mono font-semibold uppercase tracking-wider">
+        Module Status: Architecture Specification
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-serif font-bold text-stone-950 tracking-tight">
+        Technical Documentation
+      </h1>
+      <p class="text-base text-stone-600 font-serif italic">
+        System architecture, static generation parameters, and Linux administration guidelines.
+      </p>
+    </header>
+
+    <section class="space-y-4 text-stone-800 leading-relaxed text-sm">
+      <h2 class="text-xl font-serif font-bold text-stone-950">
+        1. System Architecture Overview
+      </h2>
+      <p>
+        This portfolio uses a static web architecture. The system compiles all pages to pure static HTML and CSS before deployment. The build process does not include runtime client JavaScript. This design provides maximum performance, high security, and minimal resource usage.
+      </p>
+      <p>
+        The content layer separates raw source data from web presentation. Source documents remain in a local context directory. Git ignores this directory by rule. The Astro build engine reads the structured content collections and compiles static files to the distribution directory.
+      </p>
+    </section>
+
+    <section class="space-y-4 text-stone-800 leading-relaxed text-sm">
+      <h2 class="text-xl font-serif font-bold text-stone-950">
+        2. Linux Server Administration Guidelines
+      </h2>
+      <p>
+        Follow these technical directives when you manage the host server:
+      </p>
+      <div class="border border-stone-200 rounded-lg p-5 bg-white space-y-3 font-mono text-xs">
+        <div>
+          <span class="text-stone-500 block mb-1"># Build the static site with verbose output</span>
+          <code class="text-stone-900 bg-stone-100 px-2 py-1 rounded block">bun run build --verbose</code>
+        </div>
+        <div>
+          <span class="text-stone-500 block mb-1"># Start the local preview server on port 4321</span>
+          <code class="text-stone-900 bg-stone-100 px-2 py-1 rounded block">bun run preview -- --port 4321 --host</code>
+        </div>
+        <div>
+          <span class="text-stone-500 block mb-1"># Test the HTTP response with curl</span>
+          <code class="text-stone-900 bg-stone-100 px-2 py-1 rounded block">curl -v http://localhost:4321/</code>
+        </div>
+      </div>
+    </section>
+
+    <section class="space-y-4 text-stone-800 leading-relaxed text-sm">
+      <h2 class="text-xl font-serif font-bold text-stone-950">
+        3. Continuous Deployment Workflow
+      </h2>
+      <p>
+        GitHub Actions controls the deployment pipeline. Every push to the main branch initiates an automated workflow. The workflow verifies three distinct actions:
+      </p>
+      <ul class="list-disc pl-5 space-y-2 text-stone-700">
+        <li>
+          <strong class="text-stone-900">Repository Checkout:</strong> Managed by actions/checkout@v7.
+        </li>
+        <li>
+          <strong class="text-stone-900">Static Build Engine:</strong> Managed by withastro/action@v6.
+        </li>
+        <li>
+          <strong class="text-stone-900">Pages Deployment:</strong> Managed by actions/deploy-pages@v5.
+        </li>
+      </ul>
+      <p>
+        The deployment requires no server database or runtime server application. This architecture ensures high availability and eliminates typical dynamic attack vectors.
+      </p>
+    </section>
+
+    <div class="pt-6 border-t border-stone-200">
+      <a href="/" class="text-xs font-mono font-semibold text-stone-600 hover:text-stone-950 transition-colors">
+        ← Return to Research Overview
+      </a>
+    </div>
+  </div>
+</BaseLayout>
