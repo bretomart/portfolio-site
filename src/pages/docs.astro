@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <BaseLayout
@@ -79,7 +80,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </section>
 
     <div class="pt-6 border-t border-stone-200">
-      <a href="/" class="text-xs font-mono font-semibold text-stone-600 hover:text-stone-950 transition-colors">
+      <a href={`${base}/`} class="text-xs font-mono font-semibold text-stone-600 hover:text-stone-950 transition-colors">
         ← Return to Research Overview
       </a>
     </div>

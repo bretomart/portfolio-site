@@ -4,18 +4,19 @@ interface Props {
 }
 
 const { activeNav = 'research' } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 const navItems = [
-  { label: 'Research', href: '/', id: 'research' },
-  { label: 'Curriculum Vitae', href: '/cv', id: 'cv' },
-  { label: 'Technical Documentation', href: '/docs', id: 'docs' },
+  { label: 'Research', href: `${base}/`, id: 'research' },
+  { label: 'Curriculum Vitae', href: `${base}/cv`, id: 'cv' },
+  { label: 'Technical Documentation', href: `${base}/docs`, id: 'docs' },
 ];
 ---
 
 <header class="w-full border-b border-stone-200 bg-white/95 backdrop-blur-sm sticky top-0 z-40">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
     <div class="flex items-center space-x-3">
-      <a href="/" class="text-lg font-serif font-bold tracking-tight text-stone-900 hover:text-stone-700 transition-colors">
+      <a href={`${base}/`} class="text-lg font-serif font-bold tracking-tight text-stone-900 hover:text-stone-700 transition-colors">
         Academic Portfolio
       </a>
       <span class="text-xs px-2 py-0.5 rounded border border-stone-300 bg-stone-100 text-stone-600 font-mono uppercase tracking-wider">
