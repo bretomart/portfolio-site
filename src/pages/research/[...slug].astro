@@ -15,15 +15,18 @@ const { Content } = await render(paper);
 const {
   title,
   subtitle,
+  author,
+  category,
   executiveAbstract,
   thematicAreas,
+  keyPoints,
   theoreticalFramework,
   empiricalCases,
-  mainQuestion,
-  subQuestions,
   apaReferences,
   publicationYear,
-  status
+  status,
+  institution,
+  courseOrContext,
 } = paper.data;
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
@@ -31,28 +34,33 @@ const abstractParagraphs = executiveAbstract.split('\n\n').filter(Boolean);
 ---
 
 <BaseLayout
-  title={`${title} | Academic Research`}
-  description={subtitle}
+  title={`${title} | Brandon Wong`}
+  description={subtitle || title}
   activeNav="research"
 >
   <article class="max-w-3xl mx-auto space-y-10">
+    <!-- Breadcrumb -->
     <nav aria-label="Breadcrumb">
       <a
         href={`${base}/`}
         class="inline-flex items-center text-xs font-mono font-semibold text-stone-600 hover:text-stone-950 transition-colors group"
       >
         <span class="mr-1.5 group-hover:-translate-x-1 transition-transform" aria-hidden="true">←</span>
-        <span>Back to Portfolio Overview</span>
+        <span>Back to Research & Papers Overview</span>
       </a>
     </nav>
 
+    <!-- Header Section -->
     <header class="space-y-4 border-b border-stone-200 pb-8">
       <div class="flex flex-wrap items-center gap-2">
         <span class="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-semibold bg-stone-900 text-stone-50">
-          {status}
+          {category}
         </span>
         <span class="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium border border-stone-300 text-stone-700 bg-stone-100">
-          Publication Year: {publicationYear}
+          {publicationYear}
+        </span>
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium border border-stone-300 text-stone-700 bg-stone-100">
+          {status}
         </span>
       </div>
 
@@ -60,9 +68,27 @@ const abstractParagraphs = executiveAbstract.split('\n\n').filter(Boolean);
         {title}
       </h1>
 
-      <p class="text-xl font-serif italic text-stone-700">
-        {subtitle}
-      </p>
+      {subtitle && (
+        <p class="text-xl font-serif italic text-stone-700">
+          {subtitle}
+        </p>
+      )}
+
+      <div class="pt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs font-mono text-stone-600 border-t border-stone-100">
+        <span>Author: {author}</span>
+        {institution && (
+          <>
+            <span>•</span>
+            <span>{institution}</span>
+          </>
+        )}
+        {courseOrContext && (
+          <>
+            <span>•</span>
+            <span>{courseOrContext}</span>
+          </>
+        )}
+      </div>
 
       <div class="flex flex-wrap gap-1.5 pt-2">
         {thematicAreas.map((area) => (
@@ -73,12 +99,13 @@ const abstractParagraphs = executiveAbstract.split('\n\n').filter(Boolean);
       </div>
     </header>
 
+    <!-- Executive Summary Box -->
     <section aria-labelledby="executive-summary-heading" class="bg-stone-100 border border-stone-300 rounded-lg p-6 sm:p-8 space-y-4">
       <div class="flex items-center justify-between border-b border-stone-300 pb-3">
         <h2 id="executive-summary-heading" class="text-xs font-bold uppercase tracking-wider text-stone-900 font-mono">
           Executive Academic Abstract
         </h2>
-        <span class="text-xs text-stone-600 font-mono">Synthesis & Policy Analysis</span>
+        <span class="text-xs text-stone-600 font-mono">Core Scholarly Synthesis</span>
       </div>
       <div class="space-y-3 text-sm text-stone-800 leading-relaxed text-justify">
         {abstractParagraphs.map((paragraph) => (
@@ -87,71 +114,104 @@ const abstractParagraphs = executiveAbstract.split('\n\n').filter(Boolean);
       </div>
     </section>
 
-    <section class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white border border-stone-200 rounded-lg p-6 text-xs">
-      <div class="space-y-3">
-        <h3 class="font-mono uppercase font-bold text-stone-900 tracking-wider">
-          Theoretical Lenses
-        </h3>
-        <ul class="space-y-2 text-stone-700">
-          {theoreticalFramework.map((item) => (
-            <li class="border-l-2 border-stone-400 pl-2.5">
-              <span class="font-bold text-stone-900 block">{item.concept}</span>
-              <span class="text-stone-600 block">{item.scholar}</span>
-              <span class="text-stone-700 text-xs block mt-0.5 leading-normal">{item.description}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div class="space-y-3">
-        <h3 class="font-mono uppercase font-bold text-stone-900 tracking-wider">
-          Empirical Investigation Structure
-        </h3>
-        <div class="space-y-3 text-stone-700 leading-relaxed">
-          <div class="border-l-2 border-stone-400 pl-2.5">
-            <span class="font-bold text-stone-900 block">Primary Fieldwork:</span>
-            <span>{empiricalCases.primary}</span>
-          </div>
-          <div class="border-l-2 border-stone-400 pl-2.5">
-            <span class="font-bold text-stone-900 block">Constitutional Scope:</span>
-            <span>{empiricalCases.structural}</span>
-          </div>
-          <div class="border-l-2 border-stone-400 pl-2.5">
-            <span class="font-bold text-stone-900 block">Comparative Illustration:</span>
-            <span>{empiricalCases.comparative}</span>
-          </div>
-        </div>
-      </div>
+    <!-- Key Contributions / Nav Bullet Points Box -->
+    <section class="bg-white border border-stone-200 rounded-lg p-6 space-y-3">
+      <h2 class="text-xs font-mono uppercase font-bold text-stone-900 tracking-wider">
+        Core Analytical Contributions & Highlights
+      </h2>
+      <ul class="space-y-2 text-xs text-stone-700">
+        {keyPoints.map((point) => (
+          <li class="flex items-start gap-2">
+            <span class="text-stone-900 font-bold select-none">•</span>
+            <span class="leading-relaxed">{point}</span>
+          </li>
+        ))}
+      </ul>
     </section>
 
+    <!-- Optional Empirical & Theoretical Box (for papers that have it) -->
+    {(theoreticalFramework || empiricalCases) && (
+      <section class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white border border-stone-200 rounded-lg p-6 text-xs">
+        {theoreticalFramework && (
+          <div class="space-y-3">
+            <h3 class="font-mono uppercase font-bold text-stone-900 tracking-wider">
+              Theoretical Lenses
+            </h3>
+            <ul class="space-y-2 text-stone-700">
+              {theoreticalFramework.map((item: any) => (
+                <li class="border-l-2 border-stone-400 pl-2.5">
+                  <span class="font-bold text-stone-900 block">{item.concept}</span>
+                  <span class="text-stone-600 block">{item.scholar}</span>
+                  <span class="text-stone-700 text-xs block mt-0.5 leading-normal">{item.description}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {empiricalCases && (
+          <div class="space-y-3">
+            <h3 class="font-mono uppercase font-bold text-stone-900 tracking-wider">
+              Empirical Investigation Scope
+            </h3>
+            <div class="space-y-3 text-stone-700 leading-relaxed">
+              {empiricalCases.primary && (
+                <div class="border-l-2 border-stone-400 pl-2.5">
+                  <span class="font-bold text-stone-900 block">Primary Fieldwork:</span>
+                  <span>{empiricalCases.primary}</span>
+                </div>
+              )}
+              {empiricalCases.structural && (
+                <div class="border-l-2 border-stone-400 pl-2.5">
+                  <span class="font-bold text-stone-900 block">Constitutional Scope:</span>
+                  <span>{empiricalCases.structural}</span>
+                </div>
+              )}
+              {empiricalCases.comparative && (
+                <div class="border-l-2 border-stone-400 pl-2.5">
+                  <span class="font-bold text-stone-900 block">Comparative Illustration:</span>
+                  <span>{empiricalCases.comparative}</span>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+      </section>
+    )}
+
+    <!-- Complete Paper Body -->
     <div class="border-t border-stone-200 pt-8">
       <div class="prose prose-stone max-w-none text-stone-800 leading-relaxed font-sans prose-headings:font-serif prose-headings:text-stone-950 prose-h2:text-2xl prose-h2:border-b prose-h2:border-stone-200 prose-h2:pb-2 prose-h2:mt-10 prose-h3:text-lg prose-strong:text-stone-950 prose-blockquote:border-l-stone-400 prose-blockquote:font-serif prose-blockquote:italic">
         <Content />
       </div>
     </div>
 
-    <section aria-labelledby="apa-bibliography-heading" class="border-t-2 border-stone-900 pt-8 mt-12 space-y-6">
-      <div class="space-y-1">
-        <h2 id="apa-bibliography-heading" class="text-xl font-serif font-bold text-stone-950">
-          Complete Bibliography (APA Format)
-        </h2>
-        <p class="text-xs text-stone-600 font-mono">
-          Formal citations formatted according to the American Psychological Association (APA) standard.
-        </p>
-      </div>
+    <!-- Complete Bibliography (if available) -->
+    {apaReferences && apaReferences.length > 0 && (
+      <section aria-labelledby="apa-bibliography-heading" class="border-t-2 border-stone-900 pt-8 mt-12 space-y-6">
+        <div class="space-y-1">
+          <h2 id="apa-bibliography-heading" class="text-xl font-serif font-bold text-stone-950">
+            Complete Bibliography (APA Format)
+          </h2>
+          <p class="text-xs text-stone-600 font-mono">
+            Formal citations formatted according to the American Psychological Association (APA) standard.
+          </p>
+        </div>
 
-      <div class="space-y-4 pt-2">
-        {apaReferences.map((ref) => (
-          <div class="pl-8 -indent-8 text-sm leading-relaxed text-stone-800 font-serif">
-            {ref}
-          </div>
-        ))}
-      </div>
-    </section>
+        <div class="space-y-4 pt-2">
+          {apaReferences.map((ref: string) => (
+            <div class="pl-8 -indent-8 text-sm leading-relaxed text-stone-800 font-serif">
+              {ref}
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
 
+    <!-- Footer Navigation -->
     <div class="pt-8 border-t border-stone-200 flex justify-between items-center text-xs text-stone-600">
       <a href={`${base}/`} class="hover:text-stone-950 font-mono transition-colors">
-        ← Return to Portfolio Home
+        ← Return to Research & Papers Overview
       </a>
       <span class="font-mono">End of Academic Text</span>
     </div>

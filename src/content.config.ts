@@ -5,27 +5,23 @@ const research = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/research' }),
   schema: z.object({
     title: z.string(),
-    subtitle: z.string(),
+    subtitle: z.string().optional(),
+    author: z.string().default('Brandon Wong'),
+    category: z.string(),
+    order: z.number().default(1),
     executiveAbstract: z.string(),
-    paperAbstract: z.string(),
-    mainQuestion: z.string(),
-    subQuestions: z.array(z.string()),
-    empiricalCases: z.object({
-      primary: z.string(),
-      structural: z.string(),
-      comparative: z.string(),
-    }),
-    theoreticalFramework: z.array(
-      z.object({
-        concept: z.string(),
-        scholar: z.string(),
-        description: z.string(),
-      })
-    ),
-    apaReferences: z.array(z.string()),
+    paperAbstract: z.string().optional(),
+    keyPoints: z.array(z.string()),
+    thematicAreas: z.array(z.string()),
     publicationYear: z.number(),
     status: z.string(),
-    thematicAreas: z.array(z.string()),
+    institution: z.string().optional(),
+    courseOrContext: z.string().optional(),
+    apaReferences: z.array(z.string()).optional(),
+    empiricalCases: z.any().optional(),
+    theoreticalFramework: z.any().optional(),
+    mainQuestion: z.string().optional(),
+    subQuestions: z.array(z.string()).optional(),
   }),
 });
 
