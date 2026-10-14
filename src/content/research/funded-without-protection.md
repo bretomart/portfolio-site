@@ -5,9 +5,9 @@ author: "Brandon Wong"
 category: "Migration Governance"
 order: 1
 publicationYear: 2026
-status: "Term Paper (Hausarbeit)"
+status: "Academic Research Paper"
 institution: "NHL Stenden University of Applied Sciences"
-courseOrContext: "European Studies in Global Perspectives, Sommersemester 2026"
+courseOrContext: "European Studies & Caribbean Governance"
 thematicAreas:
   - "Migration Governance"
   - "Public Administration"
@@ -31,26 +31,6 @@ apaReferences:
   - "Senbis Polymer Innovations. (2025). Unpublished research interview material with R&D leadership on the EU Just Transition Fund Biotech Consortium. Emmen, Netherlands."
   - "Wimmer, A., & Glick Schiller, N. (2002). Methodological nationalism and beyond. Global Networks, 2(4), 301-334."
 ---
-
-Funded Without Protection: How Political
-Priorities Undermine the Frameworks Built
-to Support Migrants
-How Aruba Serves as an Example of Priority Misalignment
-
-Art der Arbeit: Term Paper (Hausarbeit)
-
-Name: Brandon Wong
-
-Matrikelnummer: 6660347
-
-Studiengang: European Studies in Global Perspectives
-
-Fachsemester: Sommersemester 2026
-
-E-Mail: brandon@bretom.art
-
-Abgabedatum: 15. September 2026
-
 
 ## 1. Introduction
 

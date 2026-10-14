@@ -11,3 +11,4 @@
 2. Source Isolation: Read biographical and project data from ./context/, synthesize it into structured data collections inside src/content/, and never modify or remove ./context/ from .gitignore.
 3. Deployment Target: Configure astro.config.mjs and .github/workflows/deploy.yml using actions/checkout@v7, withastro/action@v6, and actions/deploy-pages@v5 for automated GitHub Pages deployment on pushes to the main branch.
 4. Command Execution: Whenever executing shell, file, or Git commands in the terminal, include verbose flags (-v or --verbose) so all operations remain transparent in the logs.
+5. Commit Message Protocol: Never generate automated or assumed Git commit messages. Always prompt the user to provide their own commit message before executing any Git commit operation.

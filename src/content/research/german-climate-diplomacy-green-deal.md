@@ -7,7 +7,7 @@ order: 3
 publicationYear: 2025
 status: "Diplomatic Negotiation Position Paper"
 institution: "NHL Stenden University of Applied Sciences"
-courseOrContext: "Cross-Cultural Negotiation (Lecturer: Rob Boudewijn), October 2025"
+courseOrContext: "European Climate Governance & Multilateral Negotiations"
 thematicAreas:
   - "Climate Diplomacy"
   - "European Green Deal"
@@ -28,37 +28,6 @@ apaReferences:
   - "Federal Ministry for the Environment, Nature Conservation and Nuclear Safety. (2020). Climate Action Plan 2050: Germany's long-term emission development strategy. BMU."
   - "Hagemann, S. (2021). Coalition building and decision-making in the Council of the European Union. Journal of Common Market Studies, 59(4), 842-859."
 ---
-
-                           Diplomatic Paper: Germany
-
-
-
-
-Student name: Brandon Wong                   Subject: Cross-Cultural Negotiation
-
-Student number: 4650867                              Lecturer: Rob Boudewijn
-
-Date: October 14th, 2025
-
-
-Table of Contents
-Introduction .................................................................................................................. 3
-Agenda ......................................................................................................................... 3
-   2030 Carbon Emission Targets ...................................................................................... 3
-   The Just Transition Fund (JTF) ....................................................................................... 4
-   The Role of Natural Gas ............................................................................................... 4
-   The Role of Nuclear Energy........................................................................................... 4
-Decision-Making Procedure ............................................................................................. 5
-Hard Issues and Exchange Strategy ................................................................................... 5
-Linkages Between Agenda Issues and Germany’s Position .................................................... 6
-Level-Playing Field: Allies and Adversaries .......................................................................... 6
-   Potential Supporters ................................................................................................... 6
-   Likely Opponents or Difficult Negotiating Partners ........................................................... 7
-Opening Strategy, Coalitions, and Negotiation Dynamics...................................................... 7
-Evaluation: Minimum Objectives and Non-Negotiable Issues ................................................ 7
-References .................................................................................................................... 8
-
-
 
 ## Introduction
 

@@ -7,12 +7,14 @@ interface Props {
   title: string;
   description?: string;
   activeNav?: 'research' | 'cv' | 'docs';
+  maxWidth?: string;
 }
 
 const {
   title,
   description = 'Academic portfolio focusing on migration governance, international affairs, public administration, and European studies.',
-  activeNav = 'research'
+  activeNav = 'research',
+  maxWidth = 'max-w-4xl'
 } = Astro.props;
 ---
 
@@ -35,7 +37,7 @@ const {
 
     <Header activeNav={activeNav} />
 
-    <main id="main-content" class="flex-grow w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <main id="main-content" class:list={['flex-grow w-full mx-auto px-4 sm:px-6 lg:px-8 py-10', maxWidth]}>
       <slot />
     </main>
 
