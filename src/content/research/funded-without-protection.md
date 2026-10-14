@@ -47,7 +47,7 @@ Studiengang: European Studies in Global Perspectives
 
 Fachsemester: Sommersemester 2026
 
-E-Mail: brandon.wong@student.nhlstenden.com
+E-Mail: brandon@bretom.art
 
 Abgabedatum: 15. September 2026
 
