@@ -1,0 +1,221 @@
+---
+import { base } from '../lib/utils';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const education = [
+  {
+    institution: 'University of Lorem Ipsum',
+    degree: 'Doctor of Philosophy (PhD), Social Sciences',
+    period: '2020 - 2024',
+    location: 'Lorem, Ipsum',
+    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+  },
+  {
+    institution: 'Institute of Consectetur',
+    degree: 'Master of Arts (MA), Public Policy & Governance',
+    period: '2018 - 2020',
+    location: 'Dolor, Sit Amet',
+    details: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+  },
+  {
+    institution: 'Academy of Adipiscing',
+    degree: 'Bachelor of Arts (BA), International Relations',
+    period: '2014 - 2018',
+    location: 'Elit, Sed',
+    details: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
+  }
+];
+
+const experience = [
+  {
+    role: 'Senior Research Fellow',
+    company: 'Academic Research Institute',
+    period: '2022 - Present',
+    location: 'Lorem, Ipsum',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+  },
+  {
+    role: 'Research Associate',
+    company: 'Policy Analysis Group',
+    period: '2020 - 2022',
+    location: 'Dolor, Sit Amet',
+    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+  },
+  {
+    role: 'Teaching Assistant',
+    company: 'Department of Social Sciences',
+    period: '2018 - 2020',
+    location: 'Elit, Sed',
+    description: 'Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris.'
+  }
+];
+
+const competencies = [
+  {
+    area: 'Academic Research & Methodology',
+    items: [
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+      'Sed do eiusmod tempor incididunt ut labore et dolore magna',
+      'Ut enim ad minim veniam, quis nostrud exercitation ullamco',
+      'Duis aute irure dolor in reprehenderit in voluptate velit'
+    ]
+  },
+  {
+    area: 'Policy Analysis & Governance',
+    items: [
+      'Excepteur sint occaecat cupidatat non proident, sunt in culpa',
+      'Curabitur pretium tincidunt lacus nulla gravida orci a odio',
+      'Nullam varius turpis et commodo pharetra est eros bibendum',
+      'Integer in mauris eu nibh euismod gravida duis ac tellus'
+    ]
+  },
+  {
+    area: 'Technical Systems & Data Operations',
+    items: [
+      'Fringilla sed tempus ut feugiat sit amet purus in hac habitasse',
+      'Pellentesque habitant morbi tristique senectus et netus et malesuada',
+      'Aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant',
+      'Morbi tristique senectus et netus et malesuada fames ac turpis'
+    ]
+  }
+];
+---
+
+<BaseLayout
+  title="Curriculum Vitae | Lorem Ipsum"
+  description="Curriculum vitae of Lorem Ipsum, detailing academic education, research appointments, and professional experience."
+  activeNav="cv"
+>
+  <div class="max-w-3xl mx-auto space-y-12">
+    <!-- Header Section -->
+    <header class="border-b border-stone-200 pb-8 space-y-4">
+      <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-4">
+        <div>
+          <h1 class="text-3xl sm:text-4xl font-serif font-bold text-stone-950 tracking-tight">
+            Lorem Ipsum
+          </h1>
+          <p class="text-base sm:text-lg text-stone-700 font-serif italic mt-1">
+            Doctor of Philosophy | Research Fellow in Public Policy &amp; Governance
+          </p>
+          <p class="text-xs text-stone-500 font-mono mt-1">
+            Academic Center, Earth
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:items-end gap-1.5 text-xs font-mono">
+          <span class="text-stone-700">
+            Academic Profile
+          </span>
+        </div>
+      </div>
+
+      <div class="pt-4 border-t border-stone-100 text-sm text-stone-800 leading-relaxed text-justify space-y-3">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        </p>
+        <p>
+          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida.
+        </p>
+      </div>
+    </header>
+
+    <!-- Education Section -->
+    <section class="space-y-6">
+      <div class="flex items-center justify-between border-b border-stone-200 pb-2">
+        <h2 class="text-xs font-bold uppercase tracking-wider text-stone-900 font-mono">
+          Academic Education
+        </h2>
+        <span class="text-xs text-stone-500 font-mono">Higher Education &amp; Degrees</span>
+      </div>
+
+      <div class="space-y-6">
+        {education.map((item) => (
+          <div class="border-l-2 border-stone-300 pl-4 py-0.5 space-y-1">
+            <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+              <h3 class="text-base font-serif font-bold text-stone-950">
+                {item.degree}
+              </h3>
+              <span class="text-xs font-mono text-stone-500">
+                {item.period}
+              </span>
+            </div>
+            <div class="text-xs font-mono text-stone-600">
+              {item.institution} • {item.location}
+            </div>
+            <p class="text-xs text-stone-700 leading-relaxed">
+              {item.details}
+            </p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Professional Experience Section -->
+    <section class="space-y-6">
+      <div class="flex items-center justify-between border-b border-stone-200 pb-2">
+        <h2 class="text-xs font-bold uppercase tracking-wider text-stone-900 font-mono">
+          Professional Appointments
+        </h2>
+        <span class="text-xs text-stone-500 font-mono">Academic &amp; Research Roles</span>
+      </div>
+
+      <div class="space-y-6">
+        {experience.map((item) => (
+          <div class="border-l-2 border-stone-300 pl-4 py-0.5 space-y-1.5">
+            <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+              <h3 class="text-base font-serif font-bold text-stone-950">
+                {item.role}
+              </h3>
+              <span class="text-xs font-mono text-stone-500">
+                {item.period}
+              </span>
+            </div>
+            <div class="text-xs font-mono text-stone-600">
+              {item.company} • {item.location}
+            </div>
+            <p class="text-xs text-stone-700 leading-relaxed text-justify">
+              {item.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Core Competencies Section -->
+    <section class="space-y-6">
+      <div class="flex items-center justify-between border-b border-stone-200 pb-2">
+        <h2 class="text-xs font-bold uppercase tracking-wider text-stone-900 font-mono">
+          Core Competencies &amp; Methodologies
+        </h2>
+        <span class="text-xs text-stone-500 font-mono">Research Focus</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {competencies.map((group) => (
+          <div class="border border-stone-200 rounded-lg p-5 bg-white space-y-3">
+            <h3 class="text-sm font-serif font-bold text-stone-950 border-b border-stone-100 pb-2">
+              {group.area}
+            </h3>
+            <ul class="space-y-2 text-xs text-stone-700 leading-relaxed">
+              {group.items.map((item) => (
+                <li class="flex items-start space-x-2">
+                  <span class="text-stone-400 select-none">•</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <div class="pt-6 border-t border-stone-200 flex items-center justify-between">
+      <a href={`${base}/`} class="text-xs font-mono font-semibold text-stone-600 hover:text-stone-950 transition-colors">
+        ← Return to Research Overview
+      </a>
+      <a href={`${base}/docs`} class="text-xs font-mono font-semibold text-stone-600 hover:text-stone-950 transition-colors">
+        Technical Documentation →
+      </a>
+    </div>
+  </div>
+</BaseLayout>

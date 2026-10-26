@@ -1,0 +1,46 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  activeNav?: 'research' | 'cv' | 'docs';
+  maxWidth?: string;
+}
+
+const {
+  title,
+  description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+  activeNav = 'research',
+  maxWidth = 'max-w-4xl'
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth bg-stone-50 text-stone-900 antialiased selection:bg-stone-900 selection:text-stone-50">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen flex flex-col font-sans bg-stone-50 text-stone-900">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-stone-900 focus:text-stone-50 focus:ring-2 focus:ring-stone-600 focus:outline-none text-sm font-medium"
+    >
+      Skip to main content
+    </a>
+
+    <Header activeNav={activeNav} />
+
+    <main id="main-content" class:list={['flex-grow w-full mx-auto px-4 sm:px-6 lg:px-8 py-10', maxWidth]}>
+      <slot />
+    </main>
+
+    <Footer />
+  </body>
+</html>
